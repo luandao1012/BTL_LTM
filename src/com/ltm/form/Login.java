@@ -19,34 +19,7 @@ public class Login extends javax.swing.JPanel {
 
     private void init() {
         PublicEvent.getInstance().addEventLogin(new EventLogin() {
-            @Override
-            public void login(Model_Login data) {
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        PublicEvent.getInstance().getEventMain().showLoading(true);
-                        Service.getInstance().getClient().emit("login", data.toJsonObject(), new Ack() {
-                            @Override
-                            public void call(Object... os) {
-                                if (os.length > 0) {
-                                    boolean action = (Boolean) os[0];
-                                    if (action) {
-                                        Service.getInstance().setUser(new Model_User_Account(os[1]));
-                                        PublicEvent.getInstance().getEventMain().showLoading(false);
-                                        PublicEvent.getInstance().getEventMain().initChat();
-                                    } else {
-                                        //  password wrong
-                                        PublicEvent.getInstance().getEventMain().showLoading(false);
-                                    }
-                                } else {
-                                    PublicEvent.getInstance().getEventMain().showLoading(false);
-                                }
-                            }
-                        });
-
-                    }
-                }).start();
-            }
+          
 
             @Override
             public void register(Model_Register data, EventMessage message) {
@@ -75,7 +48,39 @@ public class Login extends javax.swing.JPanel {
             public void goLogin() {
                 slide.show(0);
             }
-        });
+
+            @Override
+            public void login(Model_Login data, EventMessage message) {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        PublicEvent.getInstance().getEventMain().showLoading(true);
+                        
+                        Service.getInstance().getClient().emit("login", data.toJsonObject(), new Ack() {
+                            @Override
+                            public void call(Object... os) {
+                                if (os.length > 0) {
+                                     Model_Message ms = new Model_Message((boolean) os[0], os[1].toString());
+                                    boolean action = (Boolean) os[0];
+                                    if (ms.isAction()) {
+                                        Service.getInstance().setUser(new Model_User_Account(os[2]));
+                                        PublicEvent.getInstance().getEventMain().showLoading(false);
+                                        PublicEvent.getInstance().getEventMain().initChat();
+                                    } else {
+                                        //  password wrong
+                                        PublicEvent.getInstance().getEventMain().showLoading(false);
+                                        message.callMessage(ms);
+                                    }
+                                } else {
+                                    PublicEvent.getInstance().getEventMain().showLoading(false);
+                                }
+                            }
+                        });
+            
+                    }
+                }).start();
+            }
+                        });
         P_Login login = new P_Login();
         P_Register register = new P_Register();
         slide.init(login, register);
@@ -94,11 +99,11 @@ public class Login extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        pic.setImage(new javax.swing.ImageIcon(getClass().getResource("/com/ltm/icon/login_image.png"))); // NOI18N
+        pic.setImage(new javax.swing.ImageIcon(getClass().getResource("/com/ltm/icon/background.jpg"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(66, 66, 66));
-        jLabel2.setText("Chat Application");
+        jLabel2.setText("Chat App Group 10");
 
         pic.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -109,7 +114,7 @@ public class Login extends javax.swing.JPanel {
             .addGroup(picLayout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addComponent(jLabel2)
-                .addContainerGap(576, Short.MAX_VALUE))
+                .addContainerGap(601, Short.MAX_VALUE))
         );
         picLayout.setVerticalGroup(
             picLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,8 +185,8 @@ public class Login extends javax.swing.JPanel {
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(pic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(100, 100, 100)
+                .addComponent(pic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50))
         );

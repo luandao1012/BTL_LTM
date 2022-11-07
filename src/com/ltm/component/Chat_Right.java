@@ -2,6 +2,9 @@ package com.ltm.component;
 
 import com.ltm.model.Model_File_Sender;
 import java.awt.Color;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import javax.swing.Icon;
 
 public class Chat_Right extends javax.swing.JLayeredPane {
@@ -38,7 +41,9 @@ public class Chat_Right extends javax.swing.JLayeredPane {
     }
 
     public void setTime() {
-        txt.setTime("10:30 PM");    //  Testing
+        DateFormat dateFormat = new SimpleDateFormat("hh:mm a");
+        Calendar cal = Calendar.getInstance();
+        txt.setTime(dateFormat.format(cal.getTime()));    //  Testing
     }
 
     @SuppressWarnings("unchecked")

@@ -20,7 +20,7 @@
               <Component id="imageAvatar1" min="-2" pref="44" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lb" pref="144" max="32767" attributes="0"/>
+                  <Component id="lbUserName" pref="144" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Component id="lbStatus" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
@@ -38,7 +38,7 @@
               <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="lb" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbUserName" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="activeStatus" alignment="1" max="32767" attributes="0"/>
@@ -57,7 +57,7 @@
       <Properties>
         <Property name="borderSize" type="int" value="0"/>
         <Property name="image" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/com/ltm/icon/user.png"/>
+          <Image iconType="3" name="/com/ltm/icon/avartarDefault.png"/>
         </Property>
       </Properties>
 
@@ -65,7 +65,7 @@
         <Property name="useNullLayout" type="boolean" value="true"/>
       </Layout>
     </Container>
-    <Component class="javax.swing.JLabel" name="lb">
+    <Component class="javax.swing.JLabel" name="lbUserName">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="sansserif" size="14" style="0"/>
@@ -81,7 +81,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="75" green="75" red="75" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="New User"/>
+        <Property name="text" type="java.lang.String" value="status"/>
       </Properties>
     </Component>
     <Component class="com.ltm.swing.ActiveStatus" name="activeStatus">

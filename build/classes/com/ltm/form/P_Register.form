@@ -23,26 +23,23 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="lbTitle" alignment="0" max="32767" attributes="0"/>
           <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lbError" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="cmdBackLogin" max="32767" attributes="0"/>
-                          <Component id="cmdRegister" max="32767" attributes="0"/>
-                          <Component id="txtPass" max="32767" attributes="0"/>
-                          <Component id="txtUser" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLabel2" alignment="0" pref="228" max="32767" attributes="0"/>
-                          <Component id="txtRePassword" max="32767" attributes="0"/>
-                          <Component id="jLabel3" alignment="0" pref="228" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
+                  <Component id="cmdBackLogin" max="32767" attributes="0"/>
+                  <Component id="cmdRegister" max="32767" attributes="0"/>
+                  <Component id="txtPass" max="32767" attributes="0"/>
+                  <Component id="txtUser" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jLabel2" alignment="0" pref="228" max="32767" attributes="0"/>
+                  <Component id="txtRePassword" max="32767" attributes="0"/>
+                  <Component id="jLabel3" alignment="0" pref="228" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="lbError" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -67,9 +64,9 @@
               <Component id="cmdRegister" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="cmdBackLogin" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="lbError" min="-2" pref="24" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="lbError" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="9" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

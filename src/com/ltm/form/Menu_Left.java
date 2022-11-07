@@ -123,8 +123,8 @@ public class Menu_Left extends javax.swing.JPanel {
         menu.setOpaque(true);
         menu.setLayout(new java.awt.GridLayout(1, 3));
 
-        menuMessage.setIconSelected(new javax.swing.ImageIcon(getClass().getResource("/com/ltm/icon/message_selected.png"))); // NOI18N
-        menuMessage.setIconSimple(new javax.swing.ImageIcon(getClass().getResource("/com/ltm/icon/message.png"))); // NOI18N
+        menuMessage.setIconSelected(new javax.swing.ImageIcon(getClass().getResource("/com/ltm/icon/icon_chat.png"))); // NOI18N
+        menuMessage.setIconSimple(new javax.swing.ImageIcon(getClass().getResource("/com/ltm/icon/icon_chat.png"))); // NOI18N
         menuMessage.setSelected(true);
         menuMessage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,9 +133,9 @@ public class Menu_Left extends javax.swing.JPanel {
         });
         menu.add(menuMessage);
 
-        menuGroup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ltm/icon/group.png"))); // NOI18N
-        menuGroup.setIconSelected(new javax.swing.ImageIcon(getClass().getResource("/com/ltm/icon/group_selected.png"))); // NOI18N
-        menuGroup.setIconSimple(new javax.swing.ImageIcon(getClass().getResource("/com/ltm/icon/group.png"))); // NOI18N
+        menuGroup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ltm/icon/icon_group_chat.png"))); // NOI18N
+        menuGroup.setIconSelected(new javax.swing.ImageIcon(getClass().getResource("/com/ltm/icon/icon_group_chat.png"))); // NOI18N
+        menuGroup.setIconSimple(new javax.swing.ImageIcon(getClass().getResource("/com/ltm/icon/icon_group_chat.png"))); // NOI18N
         menuGroup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuGroupActionPerformed(evt);
@@ -143,9 +143,9 @@ public class Menu_Left extends javax.swing.JPanel {
         });
         menu.add(menuGroup);
 
-        menuBox.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ltm/icon/box.png"))); // NOI18N
-        menuBox.setIconSelected(new javax.swing.ImageIcon(getClass().getResource("/com/ltm/icon/box_selected.png"))); // NOI18N
-        menuBox.setIconSimple(new javax.swing.ImageIcon(getClass().getResource("/com/ltm/icon/box.png"))); // NOI18N
+        menuBox.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ltm/icon/iconProfilePage.png"))); // NOI18N
+        menuBox.setIconSelected(new javax.swing.ImageIcon(getClass().getResource("/com/ltm/icon/iconProfilePage.png"))); // NOI18N
+        menuBox.setIconSimple(new javax.swing.ImageIcon(getClass().getResource("/com/ltm/icon/iconProfilePage.png"))); // NOI18N
         menuBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuBoxActionPerformed(evt);
@@ -177,7 +177,7 @@ public class Menu_Left extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+            .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(sp)

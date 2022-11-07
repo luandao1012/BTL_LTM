@@ -17,8 +17,14 @@ public class Item_People extends javax.swing.JPanel {
     public Item_People(Model_User_Account user) {
         this.user = user;
         initComponents();
-        lb.setText(user.getUserName());
+        lbUserName.setText(user.getUserName());
         activeStatus.setActive(user.isStatus());
+        if (user.isStatus()) {
+            lbStatus.setText("Online");
+            lbStatus.setForeground(Color.green);
+        }else{
+             lbStatus.setText("Offline");
+        }
         init();
     }
 
@@ -54,19 +60,19 @@ public class Item_People extends javax.swing.JPanel {
     private void initComponents() {
 
         imageAvatar1 = new com.ltm.swing.ImageAvatar();
-        lb = new javax.swing.JLabel();
+        lbUserName = new javax.swing.JLabel();
         lbStatus = new javax.swing.JLabel();
         activeStatus = new com.ltm.swing.ActiveStatus();
 
         imageAvatar1.setBorderSize(0);
-        imageAvatar1.setImage(new javax.swing.ImageIcon(getClass().getResource("/com/ltm/icon/user.png"))); // NOI18N
+        imageAvatar1.setImage(new javax.swing.ImageIcon(getClass().getResource("/com/ltm/icon/avartarDefault.png"))); // NOI18N
 
-        lb.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        lb.setText("Name");
+        lbUserName.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        lbUserName.setText("Name");
 
         lbStatus.setFont(new java.awt.Font("sansserif", 2, 12)); // NOI18N
         lbStatus.setForeground(new java.awt.Color(117, 117, 117));
-        lbStatus.setText("New User");
+        lbStatus.setText("status");
 
         activeStatus.setActive(true);
 
@@ -78,7 +84,7 @@ public class Item_People extends javax.swing.JPanel {
                 .addComponent(imageAvatar1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lb, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                    .addComponent(lbUserName, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lbStatus)
                         .addGap(3, 3, 3)
@@ -92,7 +98,7 @@ public class Item_People extends javax.swing.JPanel {
                 .addGap(3, 3, 3)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lb)
+                        .addComponent(lbUserName)
                         .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(activeStatus, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -106,7 +112,7 @@ public class Item_People extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.ltm.swing.ActiveStatus activeStatus;
     private com.ltm.swing.ImageAvatar imageAvatar1;
-    private javax.swing.JLabel lb;
     private javax.swing.JLabel lbStatus;
+    private javax.swing.JLabel lbUserName;
     // End of variables declaration//GEN-END:variables
 }

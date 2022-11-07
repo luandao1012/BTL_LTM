@@ -1,7 +1,11 @@
 package com.ltm.form;
 
+import com.ltm.event.EventMessage;
 import com.ltm.event.PublicEvent;
 import com.ltm.model.Model_Login;
+import com.ltm.model.Model_Message;
+import java.awt.Color;
+import javax.swing.JOptionPane;
 
 public class P_Login extends javax.swing.JPanel {
 
@@ -20,6 +24,7 @@ public class P_Login extends javax.swing.JPanel {
         txtPass = new javax.swing.JPasswordField();
         cmdLogin = new javax.swing.JButton();
         cmdRegister = new javax.swing.JButton();
+        lbError = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -65,6 +70,10 @@ public class P_Login extends javax.swing.JPanel {
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE))
                 .addGap(20, 20, 20))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(lbError, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -83,7 +92,9 @@ public class P_Login extends javax.swing.JPanel {
                 .addComponent(cmdLogin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cmdRegister)
-                .addGap(0, 86, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(lbError, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 42, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -92,7 +103,29 @@ public class P_Login extends javax.swing.JPanel {
     }//GEN-LAST:event_cmdRegisterActionPerformed
 
     private void cmdLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLoginActionPerformed
-        PublicEvent.getInstance().getEventLogin().login(new Model_Login(txtUser.getText(), String.valueOf(txtPass.getPassword())));
+       String username = txtUser.getText();
+       String password = String.valueOf(txtPass.getPassword());
+       if(username.isEmpty()){
+           JOptionPane.showMessageDialog(null, "Username is empty", "Login", JOptionPane.ERROR_MESSAGE);
+            return;
+       }
+       if(password.isEmpty()){
+           JOptionPane.showMessageDialog(null, "Password is empty", "Login", JOptionPane.ERROR_MESSAGE);
+            return;
+       }
+        Model_Login data = new Model_Login(username,password );
+        PublicEvent.getInstance().getEventLogin().login(data, new EventMessage() {
+            @Override
+            public void callMessage(Model_Message message) {
+                if (!message.isAction()) {
+                        lbError.setText(message.getMessage());
+                        lbError.setForeground(Color.RED);
+                    } else {
+                         lbError.setText(message.getMessage());     
+                  }
+            }
+        });
+        
     }//GEN-LAST:event_cmdLoginActionPerformed
 
 
@@ -101,6 +134,7 @@ public class P_Login extends javax.swing.JPanel {
     private javax.swing.JButton cmdRegister;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lbError;
     private javax.swing.JLabel lbTitle;
     private javax.swing.JPasswordField txtPass;
     private javax.swing.JTextField txtUser;
