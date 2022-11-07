@@ -84,6 +84,8 @@ public class ServiceUser {
             String gender = r.getString(3);
             String image = r.getString(4);
             data = new Model_User_Account(userID, userName, gender, image, true);
+        } else {
+            
         }
         r.close();
         p.close();

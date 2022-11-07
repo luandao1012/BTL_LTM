@@ -58,4 +58,5 @@ public class Model_User_Account {
     private String gender;
     private String image;
     private boolean status;
+    
 }
