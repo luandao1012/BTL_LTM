@@ -55,7 +55,7 @@ public class ServiceUser {
                 con.commit();
                 con.setAutoCommit(true);
                 message.setAction(true);
-                message.setMessage("Ok");
+                message.setMessage("Register Success");
                 message.setData(new Model_User_Account(userID, data.getUserName(), "", "", true));
             }
         } catch (SQLException e) {
@@ -72,7 +72,8 @@ public class ServiceUser {
         return message;
     }
 
-    public Model_User_Account login(Model_Login login) throws SQLException {
+    public Model_Message login(Model_Login login) throws SQLException {
+         Model_Message message = new Model_Message();
         Model_User_Account data = null;
         PreparedStatement p = con.prepareStatement(LOGIN, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
         p.setString(1, login.getUserName());
@@ -84,10 +85,16 @@ public class ServiceUser {
             String gender = r.getString(3);
             String image = r.getString(4);
             data = new Model_User_Account(userID, userName, gender, image, true);
-        }
+            message.setAction(true);
+            message.setMessage("Success");
+             message.setData(data);
+        }else{
+                  message.setAction(false);
+                    message.setMessage("Wrong username or password");
+                }
         r.close();
         p.close();
-        return data;
+        return message;
     }
 
     public List<Model_User_Account> getUser(int exitUser) throws SQLException {

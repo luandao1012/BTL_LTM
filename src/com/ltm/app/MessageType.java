@@ -14,14 +14,15 @@ public enum MessageType {
     }
 
     public static MessageType toMessageType(int value) {
-        if (value == 1) {
-            return TEXT;
-        } else if (value == 2) {
-            return EMOJI;
-        } else if (value == 3) {
-            return FILE;
-        } else {
-            return IMAGE;
+        switch (value) {
+            case 1:
+                return TEXT;
+            case 2:
+                return EMOJI;
+            case 3:
+                return FILE;
+            default:
+                return IMAGE;
         }
     }
 }

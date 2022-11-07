@@ -74,7 +74,10 @@ public class Service {
         server.addEventListener("login", Model_Login.class, new DataListener<Model_Login>() {
             @Override
             public void onData(SocketIOClient sioc, Model_Login t, AckRequest ar) throws Exception {
-                Model_User_Account login = serviceUser.login(t);
+                Model_Message message = serviceUser.login(t);
+                Model_User_Account login = (Model_User_Account) message.getData();
+                System.out.println(login);
+                ar.sendAckData(message.isAction(), message.getMessage(), message.getData());
                 if (login != null) {
                     ar.sendAckData(true, login);
                     addClient(sioc, login);
